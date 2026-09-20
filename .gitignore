@@ -14,7 +14,7 @@ data/
 *.exe
 *.test
 *.out
-andromeda
+/andromeda
 
 # Coverage
 coverage.out
