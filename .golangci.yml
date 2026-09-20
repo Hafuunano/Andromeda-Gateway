@@ -1,0 +1,20 @@
+run:
+  timeout: 5m
+
+linters:
+  enable:
+    - errcheck
+    - govet
+    - staticcheck
+    - unused
+    - ineffassign
+    - misspell
+    - gofmt
+    - goimports
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/Hafuunano/Andromeda-Gateway
+
+issues:
+  exclude-use-default: false

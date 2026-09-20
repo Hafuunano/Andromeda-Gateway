@@ -1,0 +1,24 @@
+# Local secrets and runtime data
+.env
+data/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Build artifacts
+/bin/
+/dist/
+*.exe
+*.test
+*.out
+andromeda
+
+# Coverage
+coverage.out
+coverage.html
+
+# Local planning / superpowers artifacts (not for remote)
+docs/superpowers/
