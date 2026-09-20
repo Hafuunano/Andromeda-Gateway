@@ -16,6 +16,7 @@ Lucy (the application layer) registers plugins and middlewares; this gateway sel
 
 - `onebot` — ZeroBot WebSocket (migrated from Lucy-QOnebot)
 - `qqopen` — QQ Open Platform via [botgo](https://github.com/tencent-connect/botgo) **Webhook** (C2C + group)
+- `sandbox` — local test IM (`protocol/sandbox` web UI + WS), open `http://127.0.0.1:9100/sandbox/`
 
 Only one driver is active per process in v1.
 

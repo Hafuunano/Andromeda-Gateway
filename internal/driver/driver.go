@@ -12,8 +12,9 @@ import (
 type Name string
 
 const (
-	NameOneBot Name = "onebot"
-	NameQQOpen Name = "qqopen"
+	NameOneBot  Name = "onebot"
+	NameQQOpen  Name = "qqopen"
+	NameSandbox Name = "sandbox"
 )
 
 // Driver starts one protocol ingress and installs the protocol handler chain.

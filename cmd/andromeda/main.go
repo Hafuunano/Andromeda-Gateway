@@ -12,6 +12,7 @@ import (
 	"github.com/Hafuunano/Andromeda-Gateway/internal/driver"
 	"github.com/Hafuunano/Andromeda-Gateway/internal/driver/onebot"
 	qqopendriver "github.com/Hafuunano/Andromeda-Gateway/internal/driver/qqopen"
+	sandboxdrv "github.com/Hafuunano/Andromeda-Gateway/internal/driver/sandbox"
 	"github.com/Hafuunano/Lucy"
 	"github.com/Hafuunano/Protocol-ConvertTool/protocol"
 	"github.com/joho/godotenv"
@@ -31,6 +32,8 @@ func main() {
 		drv = &onebot.Driver{Cfg: cfg}
 	case driver.NameQQOpen:
 		drv = &qqopendriver.Driver{Cfg: cfg}
+	case driver.NameSandbox:
+		drv = &sandboxdrv.Driver{Cfg: cfg}
 	default:
 		log.Fatalf("unsupported DRIVER %q", cfg.Driver)
 	}

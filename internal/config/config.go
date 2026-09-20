@@ -27,6 +27,11 @@ type Config struct {
 	WebhookHost  string
 	WebhookPort  string
 	WebhookPath  string
+
+	// Sandbox local IM
+	SandboxHost  string
+	SandboxPort  string
+	SandboxToken string
 }
 
 // Load reads configuration from the environment. Call after godotenv.Load if desired.
@@ -41,6 +46,9 @@ func Load() (Config, error) {
 		WebhookHost:   envOr("WEBHOOK_HOST", "0.0.0.0"),
 		WebhookPort:   envOr("WEBHOOK_PORT", "9000"),
 		WebhookPath:   envOr("WEBHOOK_PATH", "/qqbot"),
+		SandboxHost:   envOr("SANDBOX_HOST", "127.0.0.1"),
+		SandboxPort:   envOr("SANDBOX_PORT", "9100"),
+		SandboxToken:  os.Getenv("SANDBOX_TOKEN"),
 	}
 
 	if cfg.Driver == "" {
@@ -61,10 +69,10 @@ func Load() (Config, error) {
 	}
 
 	switch cfg.Driver {
-	case driver.NameOneBot, driver.NameQQOpen:
+	case driver.NameOneBot, driver.NameQQOpen, driver.NameSandbox:
 		// ok
 	default:
-		return Config{}, fmt.Errorf("unsupported DRIVER %q (want onebot|qqopen)", cfg.Driver)
+		return Config{}, fmt.Errorf("unsupported DRIVER %q (want onebot|qqopen|sandbox)", cfg.Driver)
 	}
 	return cfg, nil
 }
